@@ -1,0 +1,222 @@
+/* ==========================================================================
+   HEADER SECTION - STICKY GLASSMORPHISM NAV
+   ========================================================================== */
+
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--header-height);
+  z-index: 1000;
+  transition: all var(--transition-normal);
+  display: flex;
+  align-items: center;
+}
+
+/* Header scrolled state - triggered by JS */
+.site-header.scrolled {
+  height: 70px;
+  background-color: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(15px);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.site-header.scrolled-dark {
+  background-color: rgba(10, 15, 20, 0.85);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+/* Brand Logo Styling */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-headings);
+  font-size: 1.6rem;
+  font-weight: 900;
+  letter-spacing: -0.5px;
+}
+
+.logo-icon {
+  background: linear-gradient(135deg, var(--primary), var(--primary-light));
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 800;
+  font-size: 1.2rem;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+.logo-text {
+  color: var(--light-text);
+}
+
+.logo-sub {
+  color: var(--primary);
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+/* Adjust colors in dark hero context & scrolled-dark context */
+.site-header:not(.scrolled) .logo-text,
+.site-header.scrolled-dark .logo-text {
+  color: white;
+}
+
+/* Main Navigation */
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  list-style: none;
+}
+
+.nav-link {
+  font-family: var(--font-headings);
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--light-text-muted);
+  position: relative;
+  padding: 8px 0;
+}
+
+.site-header:not(.scrolled) .nav-link,
+.site-header.scrolled-dark .nav-link {
+  color: hsla(0, 0%, 100%, 0.8);
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--primary);
+  transition: var(--transition-fast);
+  border-radius: var(--radius-full);
+}
+
+.nav-link:hover {
+  color: var(--primary);
+}
+
+.site-header:not(.scrolled) .nav-link:hover,
+.site-header.scrolled-dark .nav-link:hover {
+  color: white;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+.nav-link.active {
+  color: var(--primary);
+}
+
+.site-header:not(.scrolled) .nav-link.active {
+  color: white;
+}
+
+/* Call to Action Button in Header */
+.header-cta {
+  font-size: 0.9rem;
+  padding: 10px 20px;
+}
+
+/* Mobile Hamburger Menu Icon */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 21px;
+  z-index: 1001;
+}
+
+.menu-toggle span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background-color: var(--light-text);
+  border-radius: var(--radius-full);
+  transition: all 0.3s ease-in-out;
+}
+
+.site-header:not(.scrolled) .menu-toggle span,
+.site-header.scrolled-dark .menu-toggle span {
+  background-color: white;
+}
+
+/* Open Mobile Menu State */
+.menu-toggle.open span:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+
+.menu-toggle.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.open span:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
+}
+
+/* Responsive Menu styles */
+@media (max-width: 992px) {
+  .menu-toggle {
+    display: flex;
+  }
+
+  .nav-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 300px;
+    height: 100vh;
+    background-color: var(--light-surface);
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 100px 40px;
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.05);
+    transition: all 0.4s cubic-bezier(0.77, 0.2, 0.05, 1);
+    z-index: 999;
+  }
+
+  .nav-menu.open {
+    right: 0;
+  }
+
+  .nav-menu li {
+    width: 100%;
+  }
+
+  .nav-link {
+    font-size: 1.2rem;
+    display: block;
+    width: 100%;
+    padding: 12px 0;
+    color: var(--light-text) !important;
+  }
+
+  .nav-menu .header-cta {
+    margin-top: 20px;
+    width: 100%;
+  }
+}

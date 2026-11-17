@@ -1,0 +1,30 @@
+/*
+Theme Name: BITCO Tuy Nen Binh Dinh
+Theme URI: https://bitcobinhdinh.com.vn
+Author: BITCO Development Team
+Author URI: https://bitcobinhdinh.com.vn
+Description: Custom WordPress theme chuẩn cấu trúc cho Công ty Cổ phần Gạch Tuy Nen Bình Định (BITCO). Tối ưu hiệu năng, responsive, hỗ trợ hiệu ứng 3D CSS tương tác và quản lý dữ liệu linh hoạt.
+Version: 1.0.0
+Requires at least: 6.0
+Tested up to: 6.7
+Requires PHP: 7.4
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: bitco-theme
+Tags: custom-background, custom-logo, one-page, translation-ready
+*/
+
+/* Custom global overrides */
+.custom-logo-link {
+	display: inline-flex;
+	align-items: center;
+}
+.custom-logo {
+	max-height: 50px;
+	width: auto;
+	object-fit: contain;
+}
+.footer-brand-col .custom-logo {
+	max-height: 55px;
+	margin-bottom: 15px;
+}

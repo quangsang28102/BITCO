@@ -1,0 +1,540 @@
+/* ==========================================================================
+   GLOBAL DESIGN SYSTEM - BITCO TUY NEN BINH DINH
+   ========================================================================== */
+
+/* CSS Variables */
+:root {
+  /* Colors */
+  --primary-hue: 18;
+  --primary: hsl(var(--primary-hue), 85%, 48%);
+  --primary-light: hsl(var(--primary-hue), 90%, 60%);
+  --primary-dark: hsl(var(--primary-hue), 90%, 35%);
+  --primary-glow: hsla(var(--primary-hue), 85%, 48%, 0.25);
+  
+  --secondary-hue: 150;
+  --secondary: hsl(var(--secondary-hue), 60%, 40%);
+  --secondary-light: hsl(var(--secondary-hue), 70%, 50%);
+  --secondary-dark: hsl(var(--secondary-hue), 70%, 30%);
+  --secondary-glow: hsla(var(--secondary-hue), 60%, 40%, 0.2);
+
+  --dark-bg: hsl(210, 20%, 10%);
+  --dark-surface: hsl(210, 20%, 14%);
+  --dark-surface-hover: hsl(210, 20%, 18%);
+  --dark-text: hsl(210, 20%, 98%);
+  --dark-text-muted: hsl(210, 10%, 70%);
+
+  --light-bg: hsl(210, 25%, 98%);
+  --light-surface: hsl(0, 0%, 100%);
+  --light-surface-hover: hsl(210, 20%, 95%);
+  --light-text: hsl(210, 20%, 12%);
+  --light-text-muted: hsl(210, 10%, 50%);
+
+  --border-light: hsla(210, 20%, 85%, 0.8);
+  --border-dark: hsla(210, 20%, 25%, 0.8);
+
+  /* Fonts */
+  --font-headings: 'Be Vietnam Pro', Arial, sans-serif;
+  --font-body: 'Be Vietnam Pro', Arial, sans-serif;
+
+  /* Transitions */
+  --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Shadows */
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 10px 20px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.12);
+  --shadow-glow-primary: 0 0 20px var(--primary-glow);
+  --shadow-glow-secondary: 0 0 20px var(--secondary-glow);
+
+  /* Border Radii */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-full: 9999px;
+
+  /* Layout */
+  --header-height: 80px;
+  --max-width: 1280px;
+}
+
+/* Reset CSS */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--light-bg);
+  color: var(--light-text);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-headings);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: var(--transition-fast);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+input, button, select, textarea {
+  font: inherit;
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Common Layout Elements */
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.section {
+  padding: 100px 0;
+  position: relative;
+}
+
+.section.dark-section {
+  background-color: var(--dark-bg);
+  color: var(--dark-text);
+}
+
+/* Section Headers */
+.section-header {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 60px;
+}
+
+.section-tag {
+  font-family: var(--font-headings);
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--primary);
+  display: inline-block;
+  margin-bottom: 12px;
+  padding: 4px 12px;
+  background: hsla(var(--primary-hue), 85%, 48%, 0.1);
+  border-radius: var(--radius-full);
+}
+
+.section.dark-section .section-tag {
+  background: hsla(var(--primary-hue), 85%, 48%, 0.15);
+}
+
+.section-tag.eco-tag {
+  color: var(--secondary);
+  background: hsla(var(--secondary-hue), 60%, 40%, 0.1);
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 16px;
+  color: inherit;
+}
+
+.section-subtitle {
+  font-size: 1.1rem;
+  color: var(--light-text-muted);
+}
+
+.dark-section .section-subtitle {
+  color: var(--dark-text-muted);
+}
+
+/* Button Components */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 28px;
+  font-weight: 600;
+  border-radius: var(--radius-md);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  color: white;
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: 0.5s;
+  z-index: -1;
+}
+
+.btn-primary:hover::before {
+  left: 100%;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-light);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-glow-primary);
+}
+
+.btn-secondary {
+  background-color: var(--secondary);
+  color: white;
+}
+
+.btn-secondary:hover {
+  background-color: var(--secondary-light);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-glow-secondary);
+}
+
+.btn-outline {
+  border: 2px solid var(--border-light);
+  color: var(--light-text);
+}
+
+.dark-section .btn-outline {
+  border-color: var(--border-dark);
+  color: var(--dark-text);
+}
+
+.btn-outline:hover {
+  background-color: white;
+  border-color: white;
+  color: var(--primary-dark);
+  transform: translateY(-3px);
+}
+
+.dark-section .btn-outline:hover {
+  background-color: var(--dark-text);
+  border-color: var(--dark-text);
+  color: var(--dark-bg);
+}
+
+/* Animations Reveal (AOS-like) */
+.reveal {
+  opacity: 0;
+  transition: var(--transition-slow);
+}
+
+.reveal.fade-in {
+  transform: translateY(0);
+}
+
+.reveal.fade-up {
+  transform: translateY(40px);
+}
+
+.reveal.fade-down {
+  transform: translateY(-40px);
+}
+
+.reveal.slide-left {
+  transform: translateX(40px);
+}
+
+.reveal.slide-right {
+  transform: translateX(-40px);
+}
+
+.reveal.zoom-in {
+  transform: scale(0.9);
+}
+
+/* Activated states */
+.reveal.active {
+  opacity: 1;
+  transform: translate(0) scale(1);
+}
+
+/* Staggered transition delays */
+.delay-100 { transition-delay: 100ms; }
+.delay-200 { transition-delay: 200ms; }
+.delay-300 { transition-delay: 300ms; }
+.delay-400 { transition-delay: 400ms; }
+.delay-500 { transition-delay: 500ms; }
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .section {
+    padding: 60px 0;
+  }
+  .section-title {
+    font-size: 2rem;
+  }
+}
+
+/* ==========================================================================
+   SCROLL INTERACTIVE 3D BRICK DROPPING EFFECTS
+   ========================================================================== */
+
+/* 3D Mini Brick definition */
+.mini-brick-3d {
+  --bw: 40px;
+  --bh: 14px;
+  --bd: 20px;
+  position: relative;
+  width: var(--bw);
+  height: var(--bh);
+  transform-style: preserve-3d;
+  transition: opacity 0.3s ease, transform 0.15s ease;
+  margin: 4px 0;
+}
+
+.mini-brick-3d .face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: var(--primary); /* default terracotta */
+  border: 1px solid rgba(0, 0, 0, 0.18);
+  box-sizing: border-box;
+}
+
+.mini-brick-3d .face.front {
+  transform: translateZ(calc(var(--bd) / 2));
+  background: var(--primary);
+  box-shadow: inset 0 0 5px rgba(255,255,255,0.2);
+}
+
+.mini-brick-3d .face.back {
+  transform: rotateY(180deg) translateZ(calc(var(--bd) / 2));
+  background: var(--primary-dark);
+}
+
+.mini-brick-3d .face.left {
+  width: var(--bd);
+  transform: rotateY(-90deg) translateZ(calc(var(--bd) / 2));
+  left: calc(50% - var(--bd) / 2);
+  background: var(--primary-dark);
+}
+
+.mini-brick-3d .face.right {
+  width: var(--bd);
+  transform: rotateY(90deg) translateZ(calc(var(--bd) / 2));
+  left: calc(50% - var(--bd) / 2);
+  background: var(--primary-light);
+}
+
+.mini-brick-3d .face.top {
+  height: var(--bd);
+  transform: rotateX(90deg) translateZ(calc(var(--bd) / 2));
+  top: calc(50% - var(--bd) / 2);
+  background: var(--primary-light);
+}
+
+.mini-brick-3d .face.bottom {
+  height: var(--bd);
+  transform: rotateX(-90deg) translateZ(calc(var(--bd) / 2));
+  top: calc(50% - var(--bd) / 2);
+  background: var(--primary-dark);
+}
+
+/* Green theme aac block style override */
+.mini-brick-3d.aac-style .face {
+  background: #94a3b8;
+  border-color: rgba(0,0,0,0.15);
+}
+.mini-brick-3d.aac-style .face.front { background: #94a3b8; }
+.mini-brick-3d.aac-style .face.back { background: #64748b; }
+.mini-brick-3d.aac-style .face.left { background: #475569; }
+.mini-brick-3d.aac-style .face.right { background: #cbd5e1; }
+.mini-brick-3d.aac-style .face.top { background: #cbd5e1; }
+.mini-brick-3d.aac-style .face.bottom { background: #475569; }
+
+/* Section Single Builder Container */
+.section-builder-container {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 90px;
+  pointer-events: none;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media (max-width: 1200px) {
+  .section-builder-container {
+    display: none !important;
+  }
+}
+
+.builder-svg-container {
+  width: 60px;
+  height: 72px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  filter: drop-shadow(0 4px 6px rgba(0,0,0,0.15));
+  position: relative;
+}
+
+/* Landed brick at worker's hands */
+.landed-brick {
+  position: absolute;
+  left: 50%;
+  bottom: -4px;
+  transform: translateX(-50%) rotateX(60deg) rotateY(0deg) rotateZ(15deg);
+  transform-style: preserve-3d;
+  opacity: 0;
+  transition: opacity 0.15s ease-out;
+}
+
+.landed-brick.visible {
+  opacity: 1;
+}
+
+/* Bounce effect when brick is caught */
+@keyframes impactBounce {
+  0% { transform: translateX(-50%) rotateX(60deg) rotateY(0deg) rotateZ(15deg) scale(0.9) translateZ(6px); }
+  50% { transform: translateX(-50%) rotateX(60deg) rotateY(12deg) rotateZ(12deg) scale(1.08) translateZ(-3px); }
+  100% { transform: translateX(-50%) rotateX(60deg) rotateY(0deg) rotateZ(15deg) scale(1) translateZ(0); }
+}
+
+.landed-brick.impact-bounce {
+  animation: impactBounce 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Flying temporary brick with glow, spin, and trail lines */
+.temp-falling-brick {
+  position: fixed;
+  transform-style: preserve-3d;
+  pointer-events: none;
+  z-index: 10000;
+  filter: drop-shadow(0 0 10px rgba(230, 92, 56, 0.6)) blur(0.3px);
+  animation: brickSpinInFlight 0.8s linear infinite;
+}
+
+@keyframes brickSpinInFlight {
+  0% { transform: rotateX(60deg) rotateY(0deg) rotateZ(15deg); }
+  50% { transform: rotateX(60deg) rotateY(15deg) rotateZ(45deg); }
+  100% { transform: rotateX(60deg) rotateY(0deg) rotateZ(15deg); }
+}
+
+.brick-trail-lines {
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+  transform-style: preserve-3d; pointer-events: none;
+}
+
+.trail-line {
+  position: absolute; width: 2px; opacity: 0.65; pointer-events: none;
+}
+
+.temp-falling-brick.direction-down .trail-line {
+  bottom: 20px;
+  background: linear-gradient(to top, rgba(230, 92, 56, 0.8), transparent);
+  animation: trailStretch 0.4s infinite ease-out;
+}
+
+.temp-falling-brick.direction-up .trail-line {
+  top: 20px;
+  background: linear-gradient(to bottom, rgba(230, 92, 56, 0.8), transparent);
+  animation: trailStretch 0.4s infinite ease-out;
+}
+
+.trail-line.line-1 { left: 15%; height: 35px; animation-delay: 0s; }
+.trail-line.line-2 { left: 50%; height: 55px; animation-delay: 0.08s; }
+.trail-line.line-3 { left: 85%; height: 40px; animation-delay: 0.15s; }
+
+@keyframes trailStretch {
+  0% { transform: scaleY(0.4); opacity: 0.8; }
+  50% { transform: scaleY(1.4); opacity: 0.4; }
+  100% { transform: scaleY(0.4); opacity: 0.8; }
+}
+
+/* ==========================================
+   BUILDER ARM ANIMATIONS & POSES
+   ========================================== */
+.builder-svg { overflow: visible; }
+
+.arm-group {
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.builder-svg-container.pose-idle .arm-left-group { transform: rotate(0deg); }
+.builder-svg-container.pose-idle .arm-right-group { transform: rotate(0deg); }
+
+.builder-svg-container.pose-throw .arm-left-group {
+  animation: throwLeft 0.8s ease-in-out forwards;
+}
+.builder-svg-container.pose-throw .arm-right-group {
+  animation: throwRight 0.8s ease-in-out forwards;
+}
+
+@keyframes throwLeft {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(-95deg); }
+  45% { transform: rotate(35deg); }
+  100% { transform: rotate(0deg); }
+}
+@keyframes throwRight {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(95deg); }
+  45% { transform: rotate(-35deg); }
+  100% { transform: rotate(0deg); }
+}
+
+.builder-svg-container.pose-catch .arm-left-group {
+  animation: catchLeft 0.8s ease-in-out forwards;
+}
+.builder-svg-container.pose-catch .arm-right-group {
+  animation: catchRight 0.8s ease-in-out forwards;
+}
+
+@keyframes catchLeft {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(-130deg); }
+  55% { transform: rotate(-20deg); }
+  100% { transform: rotate(0deg); }
+}
+@keyframes catchRight {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(130deg); }
+  55% { transform: rotate(20deg); }
+  100% { transform: rotate(0deg); }
+}

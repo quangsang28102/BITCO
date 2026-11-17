@@ -1,0 +1,183 @@
+/* ==========================================================================
+   ABOUT SECTION - COMPANY STORY & BRAND VALUES
+   ========================================================================== */
+
+.about-container {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+/* About Media Column (Image collage) */
+.about-media {
+  position: relative;
+  width: 100%;
+}
+
+.about-img-frame {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  z-index: 5;
+}
+
+.about-img {
+  width: 100%;
+  height: 480px;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+.about-media:hover .about-img {
+  transform: scale(1.05);
+}
+
+/* Decorative background frames */
+.about-deco-box-primary {
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  width: 100px;
+  height: 100px;
+  border-top: 5px solid var(--primary);
+  border-left: 5px solid var(--primary);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.about-deco-box-secondary {
+  position: absolute;
+  bottom: -20px;
+  right: -20px;
+  width: 120px;
+  height: 120px;
+  border-bottom: 5px solid var(--secondary);
+  border-right: 5px solid var(--secondary);
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Floating Badge */
+.about-badge {
+  position: absolute;
+  bottom: 40px;
+  left: -30px;
+  background: white;
+  padding: 20px 24px;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  z-index: 10;
+  max-width: 260px;
+  border-left: 4px solid var(--primary);
+  animation: floatBadge 4s infinite alternate ease-in-out;
+}
+
+.about-badge-icon {
+  background: hsla(var(--primary-hue), 85%, 48%, 0.1);
+  color: var(--primary);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.about-badge-text h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--light-text);
+}
+
+.about-badge-text p {
+  font-size: 0.8rem;
+  color: var(--light-text-muted);
+}
+
+/* Content Column */
+.about-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.about-story {
+  font-size: 1.05rem;
+  color: var(--light-text-muted);
+  margin-bottom: 10px;
+}
+
+/* Features checklist */
+.about-features {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  list-style: none;
+  margin-top: 10px;
+}
+
+.about-feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.feature-check {
+  background: hsla(var(--secondary-hue), 60%, 40%, 0.1);
+  color: var(--secondary);
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  font-weight: bold;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.feature-info h4 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+  color: var(--light-text);
+}
+
+.feature-info p {
+  font-size: 0.95rem;
+  color: var(--light-text-muted);
+}
+
+/* Floating animation */
+@keyframes floatBadge {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-10px); }
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .about-container {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+  .about-media {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  .about-img {
+    height: 350px;
+  }
+  .about-badge {
+    left: 10px;
+    bottom: -20px;
+  }
+}

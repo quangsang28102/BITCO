@@ -1,0 +1,158 @@
+/* ==========================================================================
+   CONTACT SECTION - MODERN SPLIT CARD WITH GLASS FORM
+   ========================================================================== */
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 60px;
+  align-items: start;
+}
+
+/* Contact Info Column */
+.contact-info-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.contact-info-lead {
+  font-size: 1.1rem;
+  color: var(--light-text-muted);
+}
+
+.contact-details-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  list-style: none;
+}
+
+.contact-detail-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.contact-icon-box {
+  width: 50px;
+  height: 50px;
+  border-radius: var(--radius-md);
+  background: hsla(var(--primary-hue), 85%, 48%, 0.08);
+  border: 1px solid hsla(var(--primary-hue), 85%, 48%, 0.15);
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  flex-shrink: 0;
+  transition: all var(--transition-fast);
+}
+
+.contact-detail-item:hover .contact-icon-box {
+  background: var(--primary);
+  color: white;
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-glow-primary);
+}
+
+.contact-text h4 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+  color: var(--light-text);
+}
+
+.contact-text p {
+  font-size: 0.95rem;
+  color: var(--light-text-muted);
+  line-height: 1.5;
+}
+
+/* Form Panel */
+.contact-form-panel {
+  background-color: var(--light-surface);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 40px;
+  box-shadow: var(--shadow-lg);
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Floating label inputs */
+.form-group {
+  position: relative;
+  width: 100%;
+}
+
+.form-input {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid var(--border-light);
+  background-color: transparent;
+  border-radius: var(--radius-md);
+  outline: none;
+  font-size: 0.95rem;
+  color: var(--light-text);
+  transition: all var(--transition-fast);
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.form-label {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--light-text-muted);
+  pointer-events: none;
+  transition: all 0.25s ease-in-out;
+  background-color: var(--light-surface);
+  padding: 0 4px;
+  font-size: 0.95rem;
+}
+
+/* Position label for textarea */
+.form-group-textarea .form-label {
+  top: 24px;
+}
+
+/* Input focus & floating states */
+.form-input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px var(--primary-glow);
+}
+
+.form-input:focus + .form-label,
+.form-input:not(:placeholder-shown) + .form-label {
+  top: 0;
+  transform: translateY(-50%) scale(0.85);
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.form-submit-btn {
+  width: 100%;
+  padding: 16px;
+  border: none;
+  font-size: 1rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+  .contact-form-panel {
+    padding: 30px 20px;
+  }
+}
